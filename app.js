@@ -6,29 +6,54 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentTime = document.getElementById('currentTime')
   const currentDate = document.getElementById('currentDate')
 
+  let date = null
+  let time = null
+
+  const timeFormat = document.getElementById('timeFormat')
+
+  let twentyFourHrs = true
+
+  let hh = null
 
   const setClock = function() {
     const today = new Date()
     const dd = String(today.getDate()).padStart(2, '0')
     const mo = String(today.getMonth() + 1).padStart(2, '0')
     const yyyy = today.getFullYear()
-    const hh = today.getHours()
-    const mi = today.getMinutes()
+    const mi = String(today.getMinutes()).padStart(2, '0')
     const ss = String(today.getSeconds()).padStart(2, '0')
 
-    const date = mo + '/' + dd + '/' + yyyy
-    const time = hh + ':' + mi + ':' + ss
+    hh = today.getHours()
 
-    console.log(date)
-    console.log(time)
+    date = mo + '/' + dd + '/' + yyyy
+    time = hh + ':' + mi + ':' + ss
+
     currentTime.innerHTML = time
     currentDate.innerHTML = date
-
   }
 
-  setInterval(setClock, 100)
 
 
+
+
+  timeFormat.addEventListener('click', () => {
+
+    twentyFourHrs = twentyFourHrs === false ? true : false
+    console.log(twentyFourHrs)
+
+    timeFormat.innerHTML = twentyFourHrs === true ? 'Set to 12hr Time Format' : 'Set to 24hr Time Format'
+
+    // Checks time format for AM/PM addition
+    if (twentyFourHrs === false) {
+      const amOrPm = hh >= 12 ? 'pm' : 'am'
+      time += amOrPm
+      hh = (hh % 12) || 12
+      currentTime.innerHTML = time
+    }
+  })
+  setClock()
+
+  setInterval(setClock, 1000)
 
 
 
