@@ -28,32 +28,34 @@ document.addEventListener('DOMContentLoaded', () => {
     date = mo + '/' + dd + '/' + yyyy
     time = hh + ':' + mi + ':' + ss
 
-    currentTime.innerHTML = time
-    currentDate.innerHTML = date
-  }
 
 
-
-
-
-  timeFormat.addEventListener('click', () => {
-
-    twentyFourHrs = twentyFourHrs === false ? true : false
-    console.log(twentyFourHrs)
-
-    timeFormat.innerHTML = twentyFourHrs === true ? 'Set to 12hr Time Format' : 'Set to 24hr Time Format'
+    timeFormat.addEventListener('click', () => {
+      twentyFourHrs = twentyFourHrs === false ? true : false
+      console.log(twentyFourHrs)
+      timeFormat.innerHTML = twentyFourHrs === true ? 'Set to 12hr Time Format' : 'Set to 24hr Time Format'
+      setClock()
+    })
 
     // Checks time format for AM/PM addition
     if (twentyFourHrs === false) {
       const amOrPm = hh >= 12 ? 'pm' : 'am'
       time += amOrPm
       hh = (hh % 12) || 12
-      currentTime.innerHTML = time
+      console.log(time)
     }
-  })
+
+    currentDate.innerHTML = date
+    currentTime.innerHTML = time
+  }
   setClock()
 
   setInterval(setClock, 1000)
+
+
+
+
+
 
 
 
