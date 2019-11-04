@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ss = String(today.getSeconds()).padStart(2, '0')
 
     hh = today.getHours()
+    
+    timeFormat.innerHTML = twentyFourHrs === true ? 'Set to 12hr Time Format' : 'Set to 24hr Time Format'
 
     date = mo + '/' + dd + '/' + yyyy
     time = hh + ':' + mi + ':' + ss
@@ -42,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(setClock, 1000)
 
 
-  timeFormat.innerHTML = twentyFourHrs === true ? 'Set to 12hr Time Format' : 'Set to 24hr Time Format'
 
   timeFormat.addEventListener('click', () => {
     twentyFourHrs = twentyFourHrs === false ? true : false
