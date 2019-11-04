@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hh = today.getHours()
 
-    timeFormat.innerHTML = twentyFourHrs === true ? '12 hour clock' : '24 hour clock'
+    timeFormat.innerText = twentyFourHrs === true ? '12 hour clock' : '24 hour clock'
 
     date = mo + '/' + dd + '/' + yyyy
     time = hh + ':' + mi + ':' + ss
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    currentDate.innerHTML = date
-    currentTime.innerHTML = time
+    currentDate.innerText = date
+    currentTime.innerText = time
   }
   setClock()
 
