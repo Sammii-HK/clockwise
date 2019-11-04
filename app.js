@@ -44,22 +44,76 @@ document.addEventListener('DOMContentLoaded', () => {
   const months = [
     'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
   ]
-
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
   const setDate = function() {
     const today = new Date()
-    const dd = String(today.getDate()).padStart(2, '0')
+    const dd = today.getDate()
     const mo = String(today.getMonth() + 1).padStart(2, '0')
     const yyyy = today.getFullYear()
     const dotw = today.getDay()
+    let dayCap = null
+    // let dayCap = String(today.getDate())
+    // if (dayCap === 4) dayCap = 'th'
+
+    switch (today.getDate()) {
+      case 1:
+      case 21:
+        dayCap = 'st'
+        break
+      case 2:
+      case 22:
+        dayCap = 'nd'
+        break
+      case 3:
+      case 23:
+        dayCap = 'rd'
+        break
+      case 4:
+      case 5:
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+      case 10:
+      case 11:
+      case 12:
+      case 13:
+      case 14:
+      case 15:
+      case 16:
+      case 17:
+      case 18:
+      case 19:
+      case 20:
+      case 24:
+      case 25:
+      case 26:
+      case 27:
+      case 28:
+      case 29:
+      case 30:
+      case 31:
+        dayCap = 'th'
+        break
+    }
 
     dateFormat.innerText = ddMmYyyy === true ? 'Day Month, Yr' : 'DD/MM/YY'
 
-    if (ddMmYyyy === true) date = dd + '/' + mo + '/' + yyyy
-    else date = dotw + ' ' + months[mo -1] + ', ' + yyyy
+    if (ddMmYyyy === true) date = String(dd).padStart(2, '0') + '/' + mo + '/' + yyyy
+    // else date = dotw + ' ' + months[mo -1] + ', ' + yyyy
+
+    else date = days[dotw] + ' ' + dd + dayCap + ' ' + months[mo -1] + ', ' + yyyy
     currentDate.innerText = date
+
+    // + dayCap
+
+    console.log(date)
+    console.log(days[dotw])
+
   }
   setDate()
+
 
 
   timeFormat.addEventListener('click', () => {
