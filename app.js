@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentTime = document.getElementById('currentTime')
   const currentDate = document.getElementById('currentDate')
   const timeFormat = document.getElementById('timeFormat')
+  const dateFormat = document.getElementById('dateFormat')
 
   let date = null
   let time = null
   let hh = null
   let twentyFourHrs = true
+  let ddMmYyyy = true
 
 
   const setClock = function() {
@@ -47,8 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   timeFormat.addEventListener('click', () => {
     twentyFourHrs = twentyFourHrs === false ? true : false
+    setClock()
+  })
 
-    console.log(twentyFourHrs)
+  dateFormat.addEventListener('click', () => {
+    ddMmYyyy = ddMmYyyy === false ? true : false
+    console.log(ddMmYyyy)
     setClock()
   })
 
