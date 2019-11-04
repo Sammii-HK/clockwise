@@ -5,15 +5,19 @@
   margin: 30px 25px;
 }
 
-button {
-  font-size: 14px;
-}
-
-#clock {
+div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+}
+
+button {
+  font-size: 14px;
+  margin: 15px 5px;
+}
+
+#clock {
   margin: 50px 25px;
 }
 
