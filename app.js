@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ss = String(today.getSeconds()).padStart(2, '0')
 
     hh = today.getHours()
-    
-    timeFormat.innerHTML = twentyFourHrs === true ? 'Set to 12hr Time Format' : 'Set to 24hr Time Format'
+
+    timeFormat.innerHTML = twentyFourHrs === true ? '12 hour clock' : '24 hour clock'
 
     date = mo + '/' + dd + '/' + yyyy
     time = hh + ':' + mi + ':' + ss
